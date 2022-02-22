@@ -1,0 +1,22 @@
+function findHighest(arr: Array<number>): number {
+    let highest = 0
+    let i = 0
+    let j = 1
+    let temp
+    
+    while(true){
+        if(i === arr.length-1 && j === arr.length-1) return highest
+        if(j > arr.length) {
+            i++
+            j=0
+        }
+        temp = Math.abs(arr[i] - arr[j])
+        if(temp>highest) highest=temp
+        j++
+    }
+}
+
+function main() {
+    const arrayOfNumbers = inputLines[1].split(" ").map(num => parseInt(num));
+    console.log(findHighest(arrayOfNumbers))
+}
